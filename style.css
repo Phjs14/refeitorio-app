@@ -1,0 +1,443 @@
+:root {
+  --laranja: #D9480F;
+  --laranja-escuro: #A93A0C;
+  --azul: #1F3A5F;
+  --verde: #2B8A3E;
+  --vermelho: #C92A2A;
+  --amarelo: #FFD43B;
+  --fundo: #FFF8F2;
+  --texto: #2B2B2B;
+  --cinza: #6B6B6B;
+  --linha: #EFE3D8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding-bottom: 90px;
+}.topo {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(135deg, var(--laranja), var(--laranja-escuro));
+  color: white;
+  padding: calc(14px + env(safe-area-inset-top)) 20px 18px;
+  border-radius: 0 0 22px 22px;
+}
+
+.local {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.topo h1 {
+  font-size: 1.7rem;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.selo-app {
+  display: none;
+  font-size: 0.7rem;
+  background: var(--amarelo);
+  color: var(--texto);
+  padding: 2px 8px;
+  border-radius: 20px;
+  vertical-align: middle;
+}.tela {
+  display: none;
+  padding: 18px;
+  scroll-margin-top: 140px;
+}
+
+.tela:target {
+  display: block;
+}
+
+main:not(:has(.tela:target)) #inicio {
+  display: block;
+}
+
+.titulo-tela {
+  font-size: 1.4rem;
+  margin-bottom: 14px;
+}
+
+.titulo-secao {
+  margin: 22px 0 10px;
+  color: var(--cinza);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}.card {
+  background: white;
+  border-radius: 18px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 14px rgba(169, 58, 12, 0.08);
+}
+
+.destaque {
+  background: var(--azul);
+  color: white;
+}
+
+.rotulo,
+.rotulo-escuro {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--amarelo);
+}
+
+.rotulo-escuro {
+  color: var(--laranja);
+}
+
+.destaque h2 {
+  font-size: 1.3rem;
+  margin-top: 4px;
+}
+
+.numero-grande {
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+.numero-grande small {
+  font-size: 1rem;
+  color: var(--cinza);
+  font-weight: normal;
+}
+
+.barra {
+  height: 14px;
+  background: var(--linha);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.barra span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--verde);
+  transition: width 0.5s, background 0.5s;
+}
+
+.barra span.cheio {
+  background: var(--vermelho);
+}
+
+.horarios {
+  list-style: none;
+  margin-top: 8px;
+}
+
+.horarios li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--linha);
+}.formulario label {
+  display: block;
+  font-weight: bold;
+  margin: 10px 0 6px;
+}
+
+.formulario small {
+  color: var(--cinza);
+  font-weight: normal;
+}
+
+.formulario input {
+  width: 100%;
+  font-size: 1.05rem;
+  padding: 12px;
+  border: 2px solid var(--linha);
+  border-radius: 12px;
+}
+
+.formulario input:focus {
+  outline: none;
+  border-color: var(--laranja);
+}
+
+.botoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.botoes button {
+  border: none;
+  border-radius: 14px;
+  padding: 14px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-entrada { background: var(--verde); }
+.btn-saida   { background: var(--azul); }
+
+.botoes button:active {
+  transform: scale(0.97);
+}.mensagem {
+  margin-top: 12px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.mensagem.ok,
+.mensagem.erro {
+  padding: 10px 12px;
+}
+
+.mensagem.ok   { background: #EBFBEE; color: var(--verde); }
+.mensagem.erro { background: #FFF5F5; color: var(--vermelho); }
+
+.resumo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  text-align: center;
+}
+
+.resumo div {
+  background: white;
+  border-radius: 14px;
+  padding: 10px;
+  font-size: 0.8rem;
+  color: var(--cinza);
+}
+
+.resumo strong {
+  display: block;
+  font-size: 1.6rem;
+  color: var(--texto);
+}
+
+.registros {
+  list-style: none;
+}
+
+.registros li {
+  background: white;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-left: 5px solid var(--linha);
+  font-size: 0.95rem;
+}
+
+.registros li.entrada { border-left-color: var(--verde); }
+.registros li.saida   { border-left-color: var(--azul); }
+.registros li.vazio   { color: var(--cinza); }
+
+.btn-zerar {
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px;
+  background: transparent;
+  border: 2px solid var(--vermelho);
+  color: var(--vermelho);
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nota {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--cinza);
+}.dia-cardapio {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  border: 2px solid transparent;
+}
+
+.dia-cardapio h3 {
+  font-size: 0.85rem;
+  color: var(--cinza);
+  text-transform: uppercase;
+}
+
+.dia-cardapio .prato {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: var(--laranja);
+  margin: 2px 0;
+}
+
+.dia-cardapio.hoje {
+  border-color: var(--laranja);
+  box-shadow: 0 6px 18px rgba(217, 72, 15, 0.18);
+}
+
+.dia-cardapio.hoje::after {
+  content: "HOJE";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--laranja);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 20px;
+}.legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+  font-size: 0.8rem;
+}
+
+.legenda span {
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.tabela-rolagem {
+  overflow-x: auto;
+  border-radius: 14px;
+}
+
+.mes {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 4px;
+  font-size: 0.72rem;
+  background: white;
+}
+
+.mes th {
+  color: var(--cinza);
+  padding: 6px 2px;
+}
+
+.mes th:first-child {
+  width: 28px;
+}
+
+.mes td {
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  padding: 8px 4px;
+  border-radius: 8px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.frango { background: #FFF3BF; }
+.carne  { background: #FFE3E3; }
+.peixe  { background: #D0EBFF; }
+.veg    { background: #D3F9D8; }.abas {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  background: white;
+  border-top: 1px solid var(--linha);
+  padding-bottom: env(safe-area-inset-bottom);
+  z-index: 10;
+}
+
+.abas a {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  color: var(--cinza);
+  text-decoration: none;
+  font-size: 0.75rem;
+}
+
+.abas span {
+  display: block;
+  font-size: 1.4rem;
+}
+
+body:has(#inicio:target) .abas a[href="#inicio"],
+body:has(#controle:target) .abas a[href="#controle"],
+body:has(#semana:target) .abas a[href="#semana"],
+body:has(#mes:target) .abas a[href="#mes"],
+body:not(:has(.tela:target)) .abas a[href="#inicio"] {
+  color: var(--laranja);
+  font-weight: bold;
+}.convite {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(80px + env(safe-area-inset-bottom));
+  width: calc(100% - 24px);
+  max-width: 456px;
+  background: var(--azul);
+  color: white;
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  z-index: 20;
+}
+
+.convite[hidden] {
+  display: none;
+}
+
+.convite p {
+  flex: 1 1 100%;
+}
+
+.convite button {
+  flex: 1;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: var(--amarelo);
+  color: var(--texto);
+  cursor: pointer;
+}
+
+.convite button.secundario {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+@media (display-mode: standalone) {
+  .selo-app {
+    display: inline-block;
+  }
+}

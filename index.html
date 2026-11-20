@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Refeitório+</title>
+  <link rel="stylesheet" href="style.css">
+   <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#D9480F">
+  <link rel="icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <meta name="apple-mobile-web-app-title" content="Refeitório+">
+</head>
+<body>
+
+  <header class="topo">
+    <p class="local">Refeitório do Campus Tobias Barreto</p>
+    <h1>Refeitório+ <span class="selo-app">modo app</span></h1>
+    <span class="status">● Aberto hoje · 11h às 13h30</span>
+  </header>
+    <main>
+    <section id="inicio" class="tela">
+      <div class="card destaque">
+        <p class="rotulo">Hoje no cardápio</p>
+        <h2 id="prato-hoje">Confira o cardápio da semana</h2>
+      </div>
+
+      <div class="card">
+        <p class="rotulo-escuro">Lotação agora</p>
+        <p class="numero-grande"><span id="contador-dentro">0</span> <small>de 60 lugares</small></p>
+        <div class="barra"><span id="barra-lotacao"></span></div>
+      </div>
+
+      <div class="card">
+        <p class="rotulo-escuro">Horários</p>
+        <ul class="horarios">
+          <li><span>☕ Café da manhã</span><b>7h – 8h</b></li>
+          <li><span>🍛 Almoço</span><b>11h – 13h30</b></li>
+          <li><span>🥪 Lanche</span><b>15h – 15h30</b></li>
+        </ul>
+      </div>
+    </section>
+        <section id="controle" class="tela">
+      <h2 class="titulo-tela">Controle de acesso</h2>
+      <form id="form-registro" class="card formulario">
+        <label for="matricula">Matrícula</label>
+        <input type="text" id="matricula" name="matricula" inputmode="numeric" placeholder="Ex.: 20260123" required>
+
+        <label for="nome">Nome do aluno <small>(só na entrada)</small></label>
+        <input type="text" id="nome" name="nome" placeholder="Ex.: Maria Silva">
+
+        <div class="botoes">
+          <button type="submit" name="tipo" value="entrada" class="btn-entrada">⬇️ Entrada</button>
+          <button type="submit" name="tipo" value="saida" class="btn-saida">⬆️ Saída</button>
+        </div>
+        <p id="mensagem" class="mensagem" aria-live="polite"></p>
+      </form>
+            <div class="resumo">
+        <div><strong id="total-entradas">0</strong>Entradas</div>
+        <div><strong id="total-saidas">0</strong>Saídas</div>
+        <div><strong id="total-dentro">0</strong>Dentro</div>
+      </div>
+
+      <h3 class="titulo-secao">Registros de hoje</h3>
+      <ul id="lista-registros" class="registros">
+        <li class="vazio">Nenhum registro hoje.</li>
+      </ul>
+      <button type="button" id="zerar" class="btn-zerar">Zerar registros do dia</button>
+      <p class="nota">🔒 Os dados ficam só neste aparelho. Pela LGPD, registre apenas o necessário (matrícula e nome).</p>
+    </section>
+        <section id="semana" class="tela">
+      <h2 class="titulo-tela">Cardápio da semana</h2>
+      <article class="dia-cardapio" data-dia="1">
+        <h3>Segunda</h3>
+        <p class="prato">🍗 Frango assado</p>
+        <p>Arroz, feijão e salada · 🍌 Banana · 🧃 Suco de Laranja</p>
+      </article>
+      <article class="dia-cardapio" data-dia="2">
+        <h3>Terça</h3>
+        <p class="prato">🥩 Carne de sol acebolada</p>
+        <p>Arroz, feijão e macarrão · 🍊 Laranja · 🧃 Suco de acerola</p>
+      </article>
+      <article class="dia-cardapio" data-dia="3">
+        <h3>Quarta</h3>
+        <p class="prato">🐟 Peixe frito</p>
+        <p>Arroz, panqueca e salada · 🍉 Melancia · 🧃 Suco de goiaba</p>
+      </article>
+      <article class="dia-cardapio" data-dia="4">
+        <h3>Quinta</h3>
+        <p class="prato">🥘 Feijoada leve</p>
+        <p>Arroz, couve e farofa · 🍍 Abacaxi · 🧃 Suco de maracujá</p>
+      </article>
+      <article class="dia-cardapio" data-dia="5">
+        <h3>Sexta</h3>
+        <p class="prato">🥦 Escondidinho de legumes</p>
+        <p>Arroz e salada · 🥭 Manga · 🧃 Suco de caju</p>
+      </article>
+    </section>
+        <section id="mes" class="tela">
+      <h2 class="titulo-tela">Cardápio do mês</h2>
+      <p class="legenda">
+        <span class="frango">Frango</span>
+        <span class="carne">Carne</span>
+        <span class="peixe">Peixe</span>
+        <span class="veg">Vegetariano</span>
+      </p>
+      <div class="tabela-rolagem">
+        <table class="mes">
+          <thead>
+            <tr><th></th><th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">S1</th><td class="frango">Frango assado</td><td class="carne">Carne de sol</td><td class="peixe">Peixe frito</td><td class="carne">Feijoada</td><td class="veg">Escondidinho</td></tr>
+            <tr><th scope="row">S2</th><td class="frango">Galinhada</td><td class="carne">Carne moída</td><td class="peixe">Moqueca</td><td class="frango">Strogonoff</td><td class="veg">Lasanha de legumes</td></tr>
+            <tr><th scope="row">S3</th><td class="frango">Frango grelhado</td><td class="carne">Bife acebolado</td><td class="peixe">Peixe frito</td><td class="carne">Baião de dois</td><td class="veg">Torta de legumes</td></tr>
+            <tr><th scope="row">S4</th><td class="frango">Frango ao molho</td><td class="carne">Cozido</td><td class="peixe">Peixe assado</td><td class="carne">Macarronada</td><td class="veg">Omelete de legumes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+    <nav class="abas">
+    <a href="#inicio"><span>🏠</span>Início</a>
+    <a href="#controle"><span>🚪</span>Controle</a>
+    <a href="#semana"><span>📅</span>Semana</a>
+    <a href="#mes"><span>🗓️</span>Mês</a>
+  </nav>
+    <div id="convite" class="convite" hidden>
+    <p><b>📲 Instale o Refeitório+</b><br>Acesso rápido pela tela inicial, mesmo sem internet.</p>
+    <button id="botao-instalar">Instalar</button>
+    <button id="botao-depois" class="secundario">Agora não</button>
+  </div>
+
+  <div id="aviso-ios" class="convite" hidden>
+    <p><b>📲 Instale no iPhone:</b> toque em <b>Compartilhar</b> (quadrado com seta ⬆️) e depois em <b>Adicionar à Tela de Início</b>.</p>
+    <button id="botao-fechar-ios" class="secundario">Entendi</button>
+  </div>
+    <script src="app.js"></script>
+</body>
+</html>
